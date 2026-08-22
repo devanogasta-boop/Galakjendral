@@ -78,3 +78,13 @@ musicButton.addEventListener("click", function () {
   music.play();
   musicButton.textContent = "🎵 Playing...";
 });
+const homeScreen = document.getElementById("homeScreen");
+const chatScreen = document.getElementById("chatScreen");
+const openChat = document.getElementById("openChat");
+
+openChat.addEventListener("click", function () {
+  homeScreen.style.display = "none";
+  chatScreen.style.display = "flex";
+
+  music.play().catch(() => {});
+});
