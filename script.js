@@ -29,46 +29,46 @@ const messages = [
   { name: "Galak", text: "Happy Anniversary, Jendral. ❤️", type: "galak" }
 ];
 
-let index = 0;
+let currentMessage = 0;
 
 nextButton.addEventListener("click", function () {
+  if (currentMessage < messages.length) {
 
-  if (index >= messages.length) return;
+    const message = messages[currentMessage];
 
-  const message = messages[index];
+    const messageElement = document.createElement("div");
+    messageElement.classList.add("message", message.type);
 
-  const messageElement = document.createElement("div");
-  messageElement.classList.add("message", message.type);
+    const nameElement = document.createElement("span");
+    nameElement.classList.add("name");
+    nameElement.textContent = message.name;
 
-  const nameElement = document.createElement("span");
-  nameElement.classList.add("name");
-  nameElement.textContent = message.name;
+    const bubbleElement = document.createElement("div");
+    bubbleElement.classList.add("bubble");
 
-  const bubbleElement = document.createElement("div");
-  bubbleElement.classList.add("bubble");
+    if (message.image) {
+      const image = document.createElement("img");
+      image.src = message.image;
+      image.alt = message.name;
+      bubbleElement.appendChild(image);
+    } else {
+      bubbleElement.textContent = message.text;
+    }
 
-  if (message.image) {
-    const image = document.createElement("img");
-    image.src = message.image;
-    image.alt = message.name;
-    bubbleElement.appendChild(image);
-  } else {
-    bubbleElement.textContent = message.text;
+    messageElement.appendChild(nameElement);
+    messageElement.appendChild(bubbleElement);
+
+    chatBox.appendChild(messageElement);
+
+    currentMessage++;
+
+    chatBox.scrollTop = chatBox.scrollHeight;
+
+    music.play().catch(() => {});
+
+    if (currentMessage >= messages.length) {
+      nextButton.textContent = "The End ♡";
+      nextButton.disabled = true;
+    }
   }
-
-  messageElement.appendChild(nameElement);
-  messageElement.appendChild(bubbleElement);
-
-  chatBox.appendChild(messageElement);
-
-  index++;
-
-  chatBox.scrollTop = chatBox.scrollHeight;
-
-  music.play().catch(() => {});
-
-  if (index >= messages.length) {
-    nextButton.textContent = "The End ♡";
-  }
-
 });
