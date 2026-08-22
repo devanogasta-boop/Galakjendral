@@ -78,11 +78,11 @@ body {
 }
 
 .bubble img {
-  width: 180px;
+  width: 90px;
   max-width: 100%;
   height: auto;
   display: block;
-  border-radius: 12px;
+  border-radius: 10px;
 }
 .jendral .bubble {
   background: #f0dfe4;
