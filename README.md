@@ -1,2 +1,2 @@
-# Galakjendral
+# Galak jendral
 Our story
