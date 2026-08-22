@@ -64,7 +64,7 @@ nextButton.addEventListener("click", function () {
 
     chatBox.scrollTop = chatBox.scrollHeight;
 
-    music.play().catch(() => {});
+    music.play();
 
     if (currentMessage >= messages.length) {
       nextButton.textContent = "The End ♡";
