@@ -26,7 +26,13 @@ const messages = [
   { name: "Galak", text: "I hope we can keep making many more beautiful memories together. 🥹❤️", type: "galak" },
 
   { name: "Jendral", text: "Happy Anniversary, Galak. ❤️", type: "jendral" },
-  { name: "Galak", text: "Happy Anniversary, Jendral. ❤️", type: "galak" }
+  { name: "Galak", text: "Happy Anniversary, Jendral. ❤️", type: "galak" },
+  
+  { name: "Jendral", text: "So... do I get to keep you for another year? ❤️", type: "jendral" },
+  { name: "Galak", text: "Hmm... maybe. If you promise to keep making me smile. 😌❤️", type: "galak" },
+  { name: "Jendral", text: "Deal. But I have one more promise.", type: "jendral" },
+  { name: "Galak", text: "What's that? 👀", type: "galak" },
+  { name: "Jendral", text: "I'll keep choosing you, again and again. ❤️", type: "jendral" }
 ];
 
 let currentMessage = 0;
