@@ -72,3 +72,9 @@ nextButton.addEventListener("click", function () {
     }
   }
 });
+const musicButton = document.getElementById("musicButton");
+
+musicButton.addEventListener("click", function () {
+  music.play();
+  musicButton.textContent = "🎵 Playing...";
+});
