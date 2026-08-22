@@ -3,17 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Galak & Jendral ♡</title>
+  <title>Our Messages ♡</title>
 
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <div class="container">
+  <!-- MESSAGE LIST SCREEN -->
+  <div class="app-screen" id="homeScreen">
+
+    <div class="app-header">
+      <h1>Messages ♡</h1>
+    </div>
+
+    <div class="conversation" id="openChat">
+
+      <div class="avatar">♡</div>
+
+      <div class="conversation-info">
+        <h2>Galak & Jendral</h2>
+        <p>You have a special message... ♡</p>
+      </div>
+
+      <span class="arrow">›</span>
+
+    </div>
+
+  </div>
+
+
+  <!-- CHAT ROOM -->
+  <div class="container" id="chatScreen">
 
     <div class="header">
-      <h1>Galak & Jendral</h1>
+      <h1>Galak & Jendral ♡</h1>
       <p>our little story ♡</p>
     </div>
 
@@ -21,6 +45,7 @@
 
       <div class="message jendral">
         <span class="name">Jendral</span>
+
         <div class="bubble">
           Can I ask you something?
         </div>
@@ -29,12 +54,17 @@
     </div>
 
     <button id="nextButton">Continue ♡</button>
-<button id="musicButton">🎵 Play Music</button>
+
+    <button id="musicButton">🎵 Play Music</button>
+
   </div>
 
+
+  <!-- MUSIC -->
   <audio id="music" loop>
-    <source src="./just%20the%20way%20you%20are.mp3" type="audio/mpeg">
+    <source src="just the way you are.mp3" type="audio/mpeg">
   </audio>
+
 
   <script src="script.js"></script>
 
