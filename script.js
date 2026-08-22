@@ -1,78 +1,65 @@
-const chatBox = document.getElementById("chatBox");
-const nextButton = document.getElementById("nextButton");
-const music = document.getElementById("music");
+const chat = document.getElementById("chat");
 
 const messages = [
-  {
-    sender: "Galak",
-    type: "galak",
-    text: "What is it?"
-  },
-  {
-    sender: "Jendral",
-    type: "jendral",
-    text: "Do you know what’s precious to me?"
-  },
-  {
-    sender: "Galak",
-    type: "galak",
-    text: "Your sleep?"
-  },
-  {
-    sender: "Jendral",
-    type: "jendral",
-    text: "No."
-  },
-  {
-    sender: "Galak",
-    type: "galak",
-    text: "Your food?"
-  },
-  {
-    sender: "Jendral",
-    type: "jendral",
-    text: "No, silly."
-  },
-  {
-    sender: "Jendral",
-    type: "jendral",
-    text: "It’s you. ♡"
-  }
+  { name: "Jendral", text: "Hiiiii, Galak ❤️", type: "jendral" },
+  { name: "Galak", text: "Hiiiii, Jendral 😚", type: "galak" },
+
+  { name: "Jendral", text: "Do you know what day it is today?", type: "jendral" },
+  { name: "Galak", text: "Hmm... just a normal day? 👀", type: "galak" },
+
+  { name: "Jendral", text: "Nope. Today is a special day for us. ❤️", type: "jendral" },
+  { name: "Galak", text: "I'm excited ❤️", type: "galak" },
+
+  { name: "Jendral", text: "I want to send you something...", type: "jendral" },
+  { name: "Jendral", image: "jendral.jpg", type: "jendral" },
+
+  { name: "Galak", text: "Holy shit ❤️ You look so handsome!", type: "galak" },
+  { name: "Galak", text: "Now it's my turn 😌", type: "galak" },
+  { name: "Galak", image: "galak.jpg", type: "galak" },
+
+  { name: "Jendral", text: "You're so beautiful. ❤️", type: "jendral" },
+  { name: "Galak", text: "Hehehe, so are you. ❤️", type: "galak" },
+
+  { name: "Jendral", text: "Being with you for a year has taught me that love can feel so different. ❤️", type: "jendral" },
+  { name: "Galak", text: "I hope we can keep making many more beautiful memories together. 🥹❤️", type: "galak" },
+
+  { name: "Jendral", text: "Happy Anniversary, Galak. ❤️", type: "jendral" },
+  { name: "Galak", text: "Happy Anniversary, Jendral. ❤️", type: "galak" }
 ];
 
-let currentMessage = 0;
+let index = 0;
 
-nextButton.addEventListener("click", () => {
+function showNextMessage() {
+  if (index >= messages.length) return;
 
-  // Start the music after the first click
-  music.play().catch(() => {});
+  const message = messages[index];
 
-  if (currentMessage < messages.length) {
+  const bubble = document.createElement("div");
+  bubble.classList.add("message", message.type);
 
-    const message = messages[currentMessage];
-
-    const messageElement = document.createElement("div");
-    messageElement.classList.add("message", message.type);
-
-    messageElement.innerHTML = `
-      <span class="name">${message.sender}</span>
-      <div class="bubble">${message.text}</div>
+  if (message.text) {
+    bubble.innerHTML = `
+      <strong>${message.name}</strong>
+      <div>${message.text}</div>
     `;
-
-    chatBox.appendChild(messageElement);
-
-    currentMessage++;
-
-    // Scroll to the newest message
-    messageElement.scrollIntoView({
-      behavior: "smooth",
-      block: "center"
-    });
-
-  } else {
-
-    nextButton.textContent = "Our story continues ♡";
-
   }
 
-});
+  if (message.image) {
+    bubble.innerHTML = `
+      <strong>${message.name}</strong>
+      <img src="${message.image}" alt="${message.name}">
+    `;
+  }
+
+  chat.appendChild(bubble);
+
+  setTimeout(() => {
+    bubble.classList.add("show");
+  }, 100);
+
+  index++;
+
+  setTimeout(showNextMessage, 1500);
+}
+
+showNextMessage();
