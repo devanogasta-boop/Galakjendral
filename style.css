@@ -77,6 +77,13 @@ body {
   line-height: 1.5;
 }
 
+.bubble img {
+  width: 180px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
 .jendral .bubble {
   background: #f0dfe4;
   border-bottom-left-radius: 5px;
