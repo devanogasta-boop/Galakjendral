@@ -1,143 +1,42 @@
-const chatBox = document.getElementById("chatBox");
-const nextButton = document.getElementById("nextButton");
-const music = document.getElementById("music");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galak & Jendral ♡</title>
 
-const messages = [
-  {
-    name: "Jendral",
-    text: "Hiiiii, Galak ❤️",
-    type: "jendral"
-  },
-  {
-    name: "Galak",
-    text: "Hiiiii, Jendral 😚",
-    type: "galak"
-  },
-  {
-    name: "Jendral",
-    text: "Do you know what day it is today?",
-    type: "jendral"
-  },
-  {
-    name: "Galak",
-    text: "Hmm... just a normal day? 👀",
-    type: "galak"
-  },
-  {
-    name: "Jendral",
-    text: "Nope. Today is a special day for us. ❤️",
-    type: "jendral"
-  },
-  {
-    name: "Galak",
-    text: "Awww 😭❤️",
-    type: "galak"
-  },
-  {
-    name: "Jendral",
-    text: "I want to send you something...",
-    type: "jendral"
-  },
-  {
-    name: "Jendral",
-    image: "jendral.jpg",
-    type: "jendral"
-  },
-  {
-    name: "Galak",
-    text: "AAAAA 😭❤️ You look so handsome!",
-    type: "galak"
-  },
-  {
-    name: "Galak",
-    text: "Now it's my turn 😌",
-    type: "galak"
-  },
-  {
-    name: "Galak",
-    image: "galak.jpg",
-    type: "galak"
-  },
-  {
-    name: "Jendral",
-    text: "You're so beautiful. ❤️",
-    type: "jendral"
-  },
-  {
-    name: "Galak",
-    text: "Hehehe, so are you. ❤️",
-    type: "galak"
-  },
-  {
-    name: "Jendral",
-    text: "Being with you for a year has taught me that love can feel so different. ❤️",
-    type: "jendral"
-  },
-  {
-    name: "Galak",
-    text: "I hope we can keep making many more beautiful memories together. 🥹❤️",
-    type: "galak"
-  },
-  {
-    name: "Jendral",
-    text: "Happy Anniversary, Galak. ❤️",
-    type: "jendral"
-  },
-  {
-    name: "Galak",
-    text: "Happy Anniversary, Jendral. ❤️",
-    type: "galak"
-  }
-];
+  <link rel="stylesheet" href="style.css">
+</head>
 
-let currentMessage = 0;
+<body>
 
-nextButton.addEventListener("click", function () {
+  <div class="container">
 
-  if (currentMessage < messages.length) {
+    <div class="header">
+      <h1>Galak & Jendral</h1>
+      <p>our little story ♡</p>
+    </div>
 
-    const message = messages[currentMessage];
+    <div class="chat-box" id="chatBox">
 
-    const messageElement = document.createElement("div");
-    messageElement.classList.add("message", message.type);
+      <div class="message jendral">
+        <span class="name">Jendral</span>
+        <div class="bubble">
+          Can I ask you something?
+        </div>
+      </div>
 
-    const nameElement = document.createElement("span");
-    nameElement.classList.add("name");
-    nameElement.textContent = message.name;
+    </div>
 
-    const bubbleElement = document.createElement("div");
-    bubbleElement.classList.add("bubble");
+    <button id="nextButton">Continue ♡</button>
 
-    if (message.image) {
+  </div>
 
-      const image = document.createElement("img");
-      image.src = message.image;
-      image.alt = message.name;
+  <audio id="music" loop>
+    <source src="anniversary.mp3" type="audio/mpeg">
+  </audio>
 
-      bubbleElement.appendChild(image);
+  <script src="script.js"></script>
 
-    } else {
-
-      bubbleElement.textContent = message.text;
-
-    }
-
-    messageElement.appendChild(nameElement);
-    messageElement.appendChild(bubbleElement);
-
-    chatBox.appendChild(messageElement);
-
-    currentMessage++;
-
-    chatBox.scrollTop = chatBox.scrollHeight;
-
-    if (currentMessage === messages.length) {
-      nextButton.textContent = "The End ♡";
-      nextButton.disabled = true;
-    }
-
-    music.play().catch(() => {});
-
-  }
-
-});
+</body>
+</html>
