@@ -3,8 +3,8 @@ const nextButton = document.getElementById("nextButton");
 const music = document.getElementById("music");
 
 const messages = [
-  { name: "Jendral", text: "Hiiiii, Galak ❤️", type: "jendral" },
-  { name: "Galak", text: "Hiiiii, Jendral 😚", type: "galak" },
+  { name: "Jendral", text: "Hiiiii, baby ❤️", type: "jendral" },
+  { name: "Galak", text: "Hiiiii, love 😚", type: "galak" },
 
   { name: "Jendral", text: "Do you know what day it is today?", type: "jendral" },
   { name: "Galak", text: "Hmm... just a normal day? 👀", type: "galak" },
@@ -25,8 +25,8 @@ const messages = [
   { name: "Jendral", text: "Being with you for a year has taught me that love can feel so different. ❤️", type: "jendral" },
   { name: "Galak", text: "I hope we can keep making many more beautiful memories together. 🥹❤️", type: "galak" },
 
-  { name: "Jendral", text: "Happy Anniversary, Galak. ❤️", type: "jendral" },
-  { name: "Galak", text: "Happy Anniversary, Jendral. ❤️", type: "galak" },
+  { name: "Jendral", text: "Happy Anniversary, Bayi. ❤️", type: "jendral" },
+  { name: "Galak", text: "Happy Anniversary, Mochi. ❤️", type: "galak" },
   
   { name: "Jendral", text: "So... do I get to keep you for another year? ❤️", type: "jendral" },
   { name: "Galak", text: "Hmm... maybe. If you promise to keep making me smile. 😌❤️", type: "galak" },
