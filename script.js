@@ -1,4 +1,6 @@
-const chat = document.getElementById("chat");
+const chatBox = document.getElementById("chatBox");
+const nextButton = document.getElementById("nextButton");
+const music = document.getElementById("music");
 
 const messages = [
   { name: "Jendral", text: "Hiiiii, Galak ❤️", type: "jendral" },
@@ -29,37 +31,44 @@ const messages = [
 
 let index = 0;
 
-function showNextMessage() {
+nextButton.addEventListener("click", function () {
+
   if (index >= messages.length) return;
 
   const message = messages[index];
 
-  const bubble = document.createElement("div");
-  bubble.classList.add("message", message.type);
+  const messageElement = document.createElement("div");
+  messageElement.classList.add("message", message.type);
 
-  if (message.text) {
-    bubble.innerHTML = `
-      <strong>${message.name}</strong>
-      <div>${message.text}</div>
-    `;
-  }
+  const nameElement = document.createElement("span");
+  nameElement.classList.add("name");
+  nameElement.textContent = message.name;
+
+  const bubbleElement = document.createElement("div");
+  bubbleElement.classList.add("bubble");
 
   if (message.image) {
-    bubble.innerHTML = `
-      <strong>${message.name}</strong>
-      <img src="${message.image}" alt="${message.name}">
-    `;
+    const image = document.createElement("img");
+    image.src = message.image;
+    image.alt = message.name;
+    bubbleElement.appendChild(image);
+  } else {
+    bubbleElement.textContent = message.text;
   }
 
-  chat.appendChild(bubble);
+  messageElement.appendChild(nameElement);
+  messageElement.appendChild(bubbleElement);
 
-  setTimeout(() => {
-    bubble.classList.add("show");
-  }, 100);
+  chatBox.appendChild(messageElement);
 
   index++;
 
-  setTimeout(showNextMessage, 1500);
-}
+  chatBox.scrollTop = chatBox.scrollHeight;
 
-showNextMessage();
+  music.play().catch(() => {});
+
+  if (index >= messages.length) {
+    nextButton.textContent = "The End ♡";
+  }
+
+});
